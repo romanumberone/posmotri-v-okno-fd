@@ -97,6 +97,7 @@ ol {
 
 .content__list-container {
   display: flex;
+  position: relative;
   flex-direction: column;
   height: 298px;
   overflow: auto;
@@ -210,6 +211,7 @@ ol {
   align-items: center;
   width: fit-content;
   gap: 5px;
+  cursor: pointer;
 }
 
 .search-form__label:has(:focus-visible) {
