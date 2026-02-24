@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+:root {
+  /* Цвета */
+  --color-primary: #ffffff;
+}
+
 html {
   block-size: 100%;
 }
@@ -13,8 +18,8 @@ html {
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
-  color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  color: var(--color-primary);
+  font-family: 'Fira Sans Condensed', Arial, sans-serif;
   font-size: 18px;
   background-color: #1b1919;
   justify-content: center;
@@ -64,7 +69,7 @@ ol {
 }
 
 .title {
-  font-family: Oswald;
+  font-family: Oswald, Arial, sans-serif;
   font-size: 75px;
   line-height: 94%;
   letter-spacing: 0;
@@ -73,7 +78,6 @@ ol {
 
 .content {
   width: 1140px;
-  height: 534px;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -102,7 +106,7 @@ ol {
   height: 298px;
   overflow: auto;
   gap: 30px;
-  padding: 5px;
+  padding: 2px 5px 4px 4px;
 }
 
 .content__video-card {
@@ -111,6 +115,7 @@ ol {
 }
 
 .content__video-card-title {
+  font-family: Oswald, Arial, sans-serif;
   font-size: 30px;
   text-transform: uppercase;
   width: 196px;
@@ -128,10 +133,6 @@ ol {
 
 .content__video-card-description-container {
   flex-grow: 1;
-}
-
-.content__video-card-description-container:focus {
-  outline: none;
 }
 
 .content__video-card-description {
@@ -169,11 +170,12 @@ ol {
 }
 
 .content__card-link:focus-visible {
-  outline: 1px solid #fff;
+  outline: 1px solid var(--color-primary);
 }
 
 .content__card-link:hover .content__video-card-description-container {
   text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 
 .result {
@@ -183,14 +185,9 @@ ol {
 .result__video-container {
   position: relative;
   width: 711px;
-  height: 386p;
+  height: 386px;
   gap: 16px;
   margin-bottom: 16px;
-}
-
-.error {
-  width: inherit;
-  height: inherit;
 }
 
 .result__video {
@@ -214,20 +211,25 @@ ol {
   cursor: pointer;
 }
 
+.search-form__textfield:focus {
+  outline: none;
+}
+
 .search-form__label:has(:focus-visible) {
-  border: 1px solid #fff;
+  outline: 1px solid var(--color-primary);
+  padding: 2px;
 }
 
 .search-form__textfield {
-  font-family: Fira Sans Condensed;
+  font-family: 'Fira Sans Condensed', Arial, sans-serif;
   width: 225px;
   border: none;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
   background-color: transparent;
   font-size: 18px;
   appearance: none;
-  color: #fff;
+  color: inherit;
   font-weight: 400;
 }
 
@@ -242,6 +244,7 @@ ol {
 .search-form__fieldset-title {
   font-size: 18px;
   font-weight: 400;
+  padding-bottom: 5px;
 }
 
 .search-form__label:hover .search-form__label-text {
@@ -257,7 +260,7 @@ ol {
 .search-form__pseudo-checkbox {
   width: 19px;
   height: 19px;
-  border: 1px solid #fff;
+  border: 1px solid var(--color-primary);
   padding: 1px;
 }
 
@@ -277,11 +280,14 @@ ol {
 .button {
   background-color: transparent;
   cursor: pointer;
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', Arial, sans-serif;
   font-weight: 700;
-  color: #fff;
-  border: 1px solid #fff;
+  color: inherit;
+  border: 1px solid var(--color-primary);
   outline: none;
+  padding: 6px;
+  font-size: 18px;
+  line-height: 100%;
 }
 
 .button:hover {
@@ -293,18 +299,14 @@ ol {
 }
 
 .button:focus-visible {
-  outline: 4px double #fff;
+  outline: 4px double var(--color-primary);
 }
 
+/* если сделать search-form__submit-button и more-button на одном уровне, в состоянии focus-visible не видно обводку, поэтому в content__list-container добавил нижний padding 4px, на макете кнопка more-button выше на 2px */
 .search-form__submit-button {
-  line-height: 100%;
   width: 194px;
-  padding: 6px;
-  font-size: 18px;
-  font-weight: 700;
 }
 
 .more-button {
   width: 100%;
-  padding: 6px;
 }
